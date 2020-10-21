@@ -1,0 +1,78 @@
+@import '../../mixins.scss';
+
+.header {
+    padding: 0 1rem;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: $amazon-black;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    &__logo {
+        object-fit: cover;
+        object-position: center;
+        width: 100px;
+        height: auto;
+    }
+
+    &__searchContainer {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        margin: 0 2rem;
+
+        input {
+            width: 100%;
+            background-color: white;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        &__searchIcon {
+            margin-left: 0.2rem;
+            padding: 8px;
+            border-radius: 5px;
+            height: 2.5rem !important;
+            width: 2.5rem !important;
+            background-color: $yellow;
+        }
+    }
+
+    &__options {
+        display: flex;
+        align-items: center;
+
+        &__optionItem {
+            margin-right: 1.5rem;
+
+            &:last-of-type {
+                margin-right: 0;
+                display: flex;
+                align-items: center;
+
+                .basketIcon {
+                    margin-right: 1rem;
+                }
+
+                span {
+                    font-weight: 400;
+                }
+            }
+
+            span {
+                color: $white;
+                font-weight: 600;
+            }
+
+            &__subtitle {
+                font-weight: 400 !important;
+                font-size: 0.8rem;
+                opacity: 0.8;
+                display: block;
+            }
+        }
+    }
+}
