@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDataLayerValue } from '../../DataLayer';
 import SearchIcon from '@material-ui/icons/Search';
 
 // scss files
@@ -8,6 +10,8 @@ import './Header.scss';
 import ShoppingCartIcon from '../../assets/shopping-cart.svg';
 
 const Header = () => {
+    const [{ cart }, dispatch] = useDataLayerValue();
+
     return (
         <div className='header'>
             <img
@@ -37,10 +41,12 @@ const Header = () => {
                     <span className='header__options__optionItem__subtitle'>hello, guest</span>
                     <span>Sign in</span>
                 </div>
-                <div className='header__options__optionItem'>
-                    <img className='basketIcon' src={ShoppingCartIcon} alt='' />
-                    <span>(0)</span>
-                </div>
+                <Link to='/checkout'>
+                    <div className='header__options__optionItem cartOption'>
+                        <img className='basketIcon' src={ShoppingCartIcon} alt='' />
+                        <span>({cart.length})</span>
+                    </div>
+                </Link>
             </div>
         </div>
     );

@@ -12,11 +12,11 @@ import Checkout from './pages/Checkout/Checkout';
 function App() {
     return (
         <div className='App'>
-            <Header />
             <Router>
+                <Header />
                 <Switch>
                     <Route path='/' exact render={() => <Home />} />
-                    <Route path='/' exact render={() => <Checkout />} />
+                    <Route path='/checkout' exact render={() => <Checkout />} />
                 </Switch>
             </Router>
         </div>

@@ -48,17 +48,12 @@
         &__optionItem {
             margin-right: 1.5rem;
 
-            &:last-of-type {
-                margin-right: 0;
+            &.cartOption {
                 display: flex;
                 align-items: center;
 
                 .basketIcon {
                     margin-right: 1rem;
-                }
-
-                span {
-                    font-weight: 400;
                 }
             }
 

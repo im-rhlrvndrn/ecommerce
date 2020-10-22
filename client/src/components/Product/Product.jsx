@@ -1,11 +1,25 @@
 import React from 'react';
+import { useDataLayerValue } from '../../DataLayer';
 
 // scss files
 import './Product.scss';
 
-import HeroImage from '../../assets/heroimage.jpg';
+const Product = ({ id, title, price, img, rating }) => {
+    const [{ cart }, dispatch] = useDataLayerValue();
 
-const Product = ({ title, price, img, rating }) => {
+    const addToCart = () => {
+        dispatch({
+            type: 'ADD_TO_CART',
+            item: {
+                id,
+                title,
+                price,
+                rating,
+                img,
+            },
+        });
+    };
+
     return (
         <div className='product'>
             <div className='product__info'>
@@ -25,7 +39,9 @@ const Product = ({ title, price, img, rating }) => {
                 </div>
             </div>
             <img className='product__image' src={img} alt={title} />
-            <button className='product__cta'>Add to cart</button>
+            <button className='product__cta' onClick={addToCart}>
+                Add to cart
+            </button>
         </div>
     );
 };
