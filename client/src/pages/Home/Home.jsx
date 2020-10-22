@@ -20,7 +20,46 @@ const Home = () => {
                 />
             </div>
             <div className='home__products'>
-                <Product />
+                <Product
+                    title='Hooked: How to Build Habit-Forming'
+                    price='499'
+                    img='https://images-na.ssl-images-amazon.com/images/I/41NbRv8byAL._SX329_BO1,204,203,200_.jpg'
+                    rating={5}
+                />
+                <Product
+                    title='Fire-Boltt Blast 1400 Over -Ear Bluetooth Wireless Headphones with 25H Playtime, Thumping Bass, Lightweight Foldable Compact Design with Google/Siri Voice Assistance'
+                    price={2999}
+                    img='https://images-na.ssl-images-amazon.com/images/I/61IuteksVXL._SX522_.jpg'
+                    rating={5}
+                />
+            </div>
+            <div className='home__products'>
+                <Product
+                    title='Amazon alexa'
+                    price={2999}
+                    img='https://rentsher-india.s3.ap-south-1.amazonaws.com/images/products/10423/amazon-alexa_12101.jpg'
+                    rating={5}
+                />
+                <Product
+                    title='OnePlus 8 (Glacial Green 6GB RAM+128GB Storage)'
+                    price={39999}
+                    img='https://images-na.ssl-images-amazon.com/images/I/71KJ3loLvyL._SX679_.jpg'
+                    rating={5}
+                />
+                <Product
+                    title='Fire-Boltt Blast 1400 Over -Ear Bluetooth Wireless Headphones with 25H Playtime, Thumping Bass, Lightweight Foldable Compact Design with Google/Siri Voice Assistance'
+                    price={2999}
+                    img='https://images-na.ssl-images-amazon.com/images/I/61IuteksVXL._SX522_.jpg'
+                    rating={5}
+                />
+            </div>
+            <div className='home__products'>
+                <Product
+                    title='Fire-Boltt Blast 1400 Over -Ear Bluetooth Wireless Headphones with 25H Playtime, Thumping Bass, Lightweight Foldable Compact Design with Google/Siri Voice Assistance'
+                    price={2999}
+                    img='https://images-na.ssl-images-amazon.com/images/I/61IuteksVXL._SX522_.jpg'
+                    rating={5}
+                />
             </div>
         </div>
     );
