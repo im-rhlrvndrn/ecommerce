@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDataLayerValue } from '../../DataLayer';
+import { auth } from '../../firebase';
 import SearchIcon from '@material-ui/icons/Search';
 
 // scss files
@@ -10,7 +11,11 @@ import './Header.scss';
 import ShoppingCartIcon from '../../assets/shopping-cart.svg';
 
 const Header = () => {
-    const [{ cart }, dispatch] = useDataLayerValue();
+    const [{ cart, user }, dispatch] = useDataLayerValue();
+
+    const handleAuth = () => {
+        auth.signOut();
+    };
 
     return (
         <div className='header'>
@@ -29,10 +34,14 @@ const Header = () => {
                 <SearchIcon className='header__searchContainer__searchIcon' />
             </div>
             <div className='header__options'>
-                <div className='header__options__optionItem'>
-                    <span className='header__options__optionItem__subtitle'>hello, guest</span>
-                    <span>Sign in</span>
-                </div>
+                <Link to={!user && '/login'}>
+                    <div onClick={handleAuth} className='header__options__optionItem'>
+                        <span className='header__options__optionItem__subtitle'>
+                            hello, {user?.email ? user.email : 'guest'}
+                        </span>
+                        <span>{user ? 'Sign out' : 'Sign in'}</span>
+                    </div>
+                </Link>
                 <div className='header__options__optionItem'>
                     <span className='header__options__optionItem__subtitle'>hello, guest</span>
                     <span>Sign in</span>

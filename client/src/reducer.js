@@ -1,5 +1,6 @@
 export const initialState = {
     cart: [],
+    user: null,
 };
 
 export const getCartSubtotal = (cart) => cart?.reduce((total, item) => item.price + total, 0);
@@ -13,6 +14,9 @@ const reducer = (state, action) => {
 
         case 'REMOVE_FROM_CART':
             return { ...state, cart: state.cart.filter((item) => item.id !== action.item.id) };
+
+        case 'SET_USER':
+            return { ...state, user: action.user };
 
         default:
             return state;

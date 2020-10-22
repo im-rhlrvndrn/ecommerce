@@ -36,6 +36,7 @@ button {
     background: none;
     font-size: 16px;
     border: none;
+    border-radius: 5px;
 }
 
 input:focus,
@@ -44,6 +45,7 @@ button:focus {
 }
 
 button {
+    width: 100%;
     cursor: pointer;
 }
 
@@ -61,4 +63,12 @@ h4,
 h5,
 h6 {
     font-weight: 800;
+}
+
+.amazon_full_button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: $yellow;
+    margin: 1rem 0 0.5rem 0;
 }
