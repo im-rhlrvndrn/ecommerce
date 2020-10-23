@@ -1,3 +1,21 @@
 $amazon-black: #131921;
 $white: rgb(234, 237, 237);
 $yellow: #f3a847;
+
+@mixin phone {
+    @media screen and (min-width: 500px) {
+        @content;
+    }
+}
+
+@mixin sm-tablet {
+    @media screen and (min-width: 767px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}

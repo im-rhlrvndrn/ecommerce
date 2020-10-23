@@ -4,7 +4,10 @@
     h1 {
         margin: 1rem 0;
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.2rem;
+        @include sm-tablet {
+            font-size: 2rem;
+        }
 
         a {
             font-size: inherit;
@@ -16,10 +19,16 @@
         border-radius: 5px;
         padding: 1rem;
         margin: 0 1rem 0.5rem 1rem;
-        display: flex;
+        @include sm-tablet {
+            display: flex;
+        }
 
         &__title {
             flex: 0.2;
+            margin-bottom: 1rem;
+            @include sm-tablet {
+                margin: 0;
+            }
         }
 
         &__info,

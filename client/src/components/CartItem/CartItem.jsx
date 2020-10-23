@@ -31,7 +31,7 @@ const CartItem = ({ id, title, img, price, rating }) => {
                             <p>⭐</p>
                         ))}
                 </div>
-                <button onClick={removeFromCart} className='cartItem__info__cta'>
+                <button onClick={removeFromCart} className='amazon_full_button'>
                     Remove from cart
                 </button>
             </div>

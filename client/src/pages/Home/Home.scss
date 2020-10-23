@@ -1,3 +1,5 @@
+@import '../../mixins.scss';
+
 .home {
     &__container {
         img {
@@ -10,6 +12,10 @@
 
     &__products {
         display: flex;
+        flex-wrap: wrap;
         margin: 0 1rem;
+        @include sm-tablet {
+            flex-wrap: nowrap;
+        }
     }
 }

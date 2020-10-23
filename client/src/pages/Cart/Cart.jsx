@@ -59,7 +59,10 @@ const Cart = () => {
                         <input type='checkbox' id='gift' />{' '}
                         <label htmlFor='gift'>This cart contains a gift</label>
                     </span>
-                    <button className='subtotal__cta' onClick={() => history.push('/checkout')}>
+                    <button
+                        className='amazon_full_button'
+                        onClick={() => history.push('/checkout')}
+                    >
                         Proceed to checkout
                     </button>
                 </div>

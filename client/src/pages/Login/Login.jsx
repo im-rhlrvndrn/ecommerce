@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { auth } from '../../firebase';
 
 // scss files
@@ -31,10 +31,12 @@ const Login = () => {
 
     return (
         <div className='login'>
-            <img
-                src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png'
-                alt='amazon logo'
-            />
+            <Link to='/'>
+                <img
+                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png'
+                    alt='amazon logo'
+                />
+            </Link>
 
             <div className='loginFormContainer'>
                 <h1>Sign-in</h1>

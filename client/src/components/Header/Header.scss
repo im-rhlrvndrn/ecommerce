@@ -7,9 +7,13 @@
     display: flex;
     align-items: center;
     background-color: $amazon-black;
-    position: sticky;
-    top: 0;
     z-index: 100;
+    position: fixed;
+    bottom: 0;
+    @include sm-tablet {
+        position: sticky;
+        top: 0;
+    }
 
     &__logo {
         object-fit: cover;

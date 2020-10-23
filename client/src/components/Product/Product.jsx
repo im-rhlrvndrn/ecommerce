@@ -39,7 +39,7 @@ const Product = ({ id, title, price, img, rating }) => {
                 </div>
             </div>
             <img className='product__image' src={img} alt={title} />
-            <button className='product__cta' onClick={addToCart}>
+            <button className='amazon_full_button' onClick={addToCart}>
                 Add to cart
             </button>
         </div>
