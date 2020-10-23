@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDataLayerValue } from '../../DataLayer';
 import { getCartSubtotal } from '../../reducer';
 
@@ -9,6 +10,7 @@ import './Cart.scss';
 import CartItem from '../../components/CartItem/CartItem';
 
 const Cart = () => {
+    const history = useHistory();
     const [{ cart }, dispatch] = useDataLayerValue();
 
     return (
@@ -57,7 +59,9 @@ const Cart = () => {
                         <input type='checkbox' id='gift' />{' '}
                         <label htmlFor='gift'>This cart contains a gift</label>
                     </span>
-                    <button className='subtotal__cta'>Proceed to checkout</button>
+                    <button className='subtotal__cta' onClick={() => history.push('/checkout')}>
+                        Proceed to checkout
+                    </button>
                 </div>
             </div>
         </div>

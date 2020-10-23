@@ -72,3 +72,12 @@ h6 {
     background-color: $yellow;
     margin: 1rem 0 0.5rem 0;
 }
+
+.amazon_full_button_disabled {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background-color: #fbe0be;
+    margin: 1rem 0 0.5rem 0;
+    cursor: not-allowed;
+}

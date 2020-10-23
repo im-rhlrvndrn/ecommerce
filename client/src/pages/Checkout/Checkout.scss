@@ -1,0 +1,39 @@
+@import '../../mixins.scss';
+
+.payment {
+    h1 {
+        margin: 1rem 0;
+        text-align: center;
+        font-size: 2rem;
+
+        a {
+            font-size: inherit;
+        }
+    }
+
+    &__section {
+        background-color: white;
+        border-radius: 5px;
+        padding: 1rem;
+        margin: 0 1rem 0.5rem 1rem;
+        display: flex;
+
+        &__title {
+            flex: 0.2;
+        }
+
+        &__info,
+        &__cartItemsContainer,
+        &__details {
+            flex: 0.8;
+        }
+
+        &__details {
+            &__paymentTotal {
+                margin-top: 1rem;
+                padding: 2rem;
+                border: 1px solid $white;
+            }
+        }
+    }
+}

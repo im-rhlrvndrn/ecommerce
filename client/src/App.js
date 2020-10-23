@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import { auth } from './firebase';
 import { useDataLayerValue } from './DataLayer';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 // scss files
 import './GlobalStyles.scss';
@@ -11,6 +13,9 @@ import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
 import Cart from './pages/Cart/Cart';
 import Login from './pages/Login/Login';
+import Checkout from './pages/Checkout/Checkout';
+
+const promise = loadStripe('pk_test_L3BcfF6ZVyoCnzXcu9jBZ72c002d0JJF5i');
 
 function App() {
     const history = useHistory();
@@ -50,6 +55,18 @@ function App() {
                             <>
                                 <Header />
                                 <Cart />
+                            </>
+                        )}
+                    />
+                    <Route
+                        path='/checkout'
+                        exact
+                        render={() => (
+                            <>
+                                <Header />
+                                <Elements stripe={promise}>
+                                    <Checkout />
+                                </Elements>
                             </>
                         )}
                     />
