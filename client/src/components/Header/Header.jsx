@@ -19,11 +19,13 @@ const Header = () => {
 
     return (
         <div className='header'>
-            <img
-                className='header__logo'
-                src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
-                alt='ecommerce logo'
-            />
+            <Link to='/'>
+                <img
+                    className='header__logo'
+                    src='http://pngimg.com/uploads/amazon/amazon_PNG11.png'
+                    alt='ecommerce logo'
+                />
+            </Link>
             <div className='header__searchContainer'>
                 <input
                     type='text'
@@ -50,7 +52,7 @@ const Header = () => {
                     <span className='header__options__optionItem__subtitle'>hello, guest</span>
                     <span>Sign in</span>
                 </div>
-                <Link to='/checkout'>
+                <Link to='/cart'>
                     <div className='header__options__optionItem cartOption'>
                         <img className='basketIcon' src={ShoppingCartIcon} alt='' />
                         <span>({cart.length})</span>

@@ -9,7 +9,7 @@ import './GlobalStyles.scss';
 // React components
 import Home from './pages/Home/Home';
 import Header from './components/Header/Header';
-import Checkout from './pages/Checkout/Checkout';
+import Cart from './pages/Cart/Cart';
 import Login from './pages/Login/Login';
 
 function App() {
@@ -44,12 +44,12 @@ function App() {
                         )}
                     />
                     <Route
-                        path='/checkout'
+                        path='/cart'
                         exact
                         render={() => (
                             <>
                                 <Header />
-                                <Checkout />
+                                <Cart />
                             </>
                         )}
                     />

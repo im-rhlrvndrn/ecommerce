@@ -3,17 +3,17 @@ import { useDataLayerValue } from '../../DataLayer';
 import { getCartSubtotal } from '../../reducer';
 
 // Scss files
-import './Checkout.scss';
+import './Cart.scss';
 
 // React components
 import CartItem from '../../components/CartItem/CartItem';
 
-const Checkout = () => {
+const Cart = () => {
     const [{ cart }, dispatch] = useDataLayerValue();
 
     return (
-        <div className='checkout'>
-            <div className='checkout__left'>
+        <div className='cart'>
+            <div className='cart__left'>
                 <img
                     src='https://328897-1008310-2-raikfcquaxqncofqfm.stackpathdns.com/wp-content/uploads/2019/12/Amazon-Banner-Ad-Example-1-1.jpg'
                     alt='advertisement'
@@ -41,7 +41,7 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
-            <div className='checkout__right'>
+            <div className='cart__right'>
                 <div className='subtotal'>
                     <p className='subtotal__total'>
                         Subtotal:{' '}
@@ -64,4 +64,4 @@ const Checkout = () => {
     );
 };
 
-export default Checkout;
+export default Cart;
