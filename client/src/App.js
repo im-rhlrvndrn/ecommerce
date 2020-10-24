@@ -14,6 +14,7 @@ import Header from './components/Header/Header';
 import Cart from './pages/Cart/Cart';
 import Login from './pages/Login/Login';
 import Checkout from './pages/Checkout/Checkout';
+import Orders from './pages/Orders/Orders';
 
 const promise = loadStripe('pk_test_L3BcfF6ZVyoCnzXcu9jBZ72c002d0JJF5i');
 
@@ -67,6 +68,16 @@ function App() {
                                 <Elements stripe={promise}>
                                     <Checkout />
                                 </Elements>
+                            </>
+                        )}
+                    />
+                    <Route
+                        path='/orders'
+                        exact
+                        render={() => (
+                            <>
+                                <Header />
+                                <Orders />
                             </>
                         )}
                     />

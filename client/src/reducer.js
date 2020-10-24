@@ -15,6 +15,9 @@ const reducer = (state, action) => {
         case 'REMOVE_FROM_CART':
             return { ...state, cart: state.cart.filter((item) => item.id !== action.item.id) };
 
+        case 'EMPTY_CART':
+            return { ...state, cart: [] };
+
         case 'SET_USER':
             return { ...state, user: action.user };
 

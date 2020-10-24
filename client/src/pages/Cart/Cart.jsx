@@ -61,7 +61,13 @@ const Cart = () => {
                     </span>
                     <button
                         className='amazon_full_button'
-                        onClick={() => history.push('/checkout')}
+                        onClick={() =>
+                            cart?.length
+                                ? history.push('/checkout')
+                                : alert(
+                                      'Your cart is empty. Please select some items before checking out to payment'
+                                  )
+                        }
                     >
                         Proceed to checkout
                     </button>

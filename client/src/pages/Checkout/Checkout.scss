@@ -27,6 +27,9 @@
             flex: 0.2;
             margin-bottom: 1rem;
             @include sm-tablet {
+                margin: 0 1rem 0 0;
+            }
+            @include tablet {
                 margin: 0;
             }
         }

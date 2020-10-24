@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { getCartSubtotal } from '../../reducer';
 import { useDataLayerValue } from '../../DataLayer';
+import { db } from '../../firebase';
 import axios from '../../axios';
 
 // scss files
@@ -46,17 +47,27 @@ const Checkout = () => {
             })
             .then(({ paymentIntent }) => {
                 //  paymentIntent = payment confirmation
+                db.collection('users')
+                    .doc(user?.uid)
+                    .collections('orders')
+                    .doc(paymentIntent.id)
+                    .set({
+                        cart: cart,
+                        amount: paymentIntent.amount,
+                        created: paymentIntent.created,
+                    });
 
-                setProcessing(false);
-                setError(null);
                 setSucceeded(true);
+                setError(null);
+                setProcessing(false);
+
+                dispatch({ type: 'EMPTY_CART' });
 
                 history.replace('/orders');
             });
     };
 
     const handleChange = (e) => {
-        e.preventDefault();
         setDisabled(e.empty);
         setError(e.error ? e.error.message : '');
     };
@@ -103,6 +114,7 @@ const Checkout = () => {
                                 }).format(getCartSubtotal(cart))}
                             </h3>
                             <button
+                                type='submit'
                                 disabled={processing || disabled || succeeded}
                                 className={
                                     disabled ? 'amazon_full_button_disabled' : 'amazon_full_button'

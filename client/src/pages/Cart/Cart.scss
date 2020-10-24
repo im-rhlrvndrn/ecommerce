@@ -39,7 +39,8 @@
         @include tablet {
             height: max-content;
             padding: 0;
-            position: relative;
+            position: sticky;
+            top: calc(90px + 1rem);
             flex: 0.3;
         }
 
@@ -57,8 +58,6 @@
             padding: 1rem;
             border-radius: 5px;
             @include tablet {
-                position: sticky;
-                top: calc(90px + 1rem);
                 margin: 0;
                 width: 100%;
             }
