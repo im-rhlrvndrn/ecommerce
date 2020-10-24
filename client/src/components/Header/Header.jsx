@@ -44,10 +44,12 @@ const Header = () => {
                         <span>{user ? 'Sign out' : 'Sign in'}</span>
                     </div>
                 </Link>
-                <div className='header__options__optionItem'>
-                    <span className='header__options__optionItem__subtitle'>hello, guest</span>
-                    <span>Sign in</span>
-                </div>
+                <Link to='/orders'>
+                    <div className='header__options__optionItem'>
+                        <span className='header__options__optionItem__subtitle'>Your</span>
+                        <span>Orders</span>
+                    </div>
+                </Link>
                 <div className='header__options__optionItem'>
                     <span className='header__options__optionItem__subtitle'>hello, guest</span>
                     <span>Sign in</span>

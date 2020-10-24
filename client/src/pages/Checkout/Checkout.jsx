@@ -24,6 +24,8 @@ const Checkout = () => {
     const [{ cart, user }, dispatch] = useDataLayerValue();
 
     useEffect(() => {
+        if (!cart.length) return;
+
         const getClientSecret = async () => {
             const response = await axios({
                 method: 'post',
@@ -49,7 +51,7 @@ const Checkout = () => {
                 //  paymentIntent = payment confirmation
                 db.collection('users')
                     .doc(user?.uid)
-                    .collections('orders')
+                    .collection('orders')
                     .doc(paymentIntent.id)
                     .set({
                         cart: cart,
@@ -115,7 +117,7 @@ const Checkout = () => {
                             </h3>
                             <button
                                 type='submit'
-                                disabled={processing || disabled || succeeded}
+                                disabled={!cart.length || processing || disabled || succeeded}
                                 className={
                                     disabled ? 'amazon_full_button_disabled' : 'amazon_full_button'
                                 }

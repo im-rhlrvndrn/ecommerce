@@ -4,8 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon index",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "node index",
+        "client": "cd ../client && npm start",
+        "server": "nodemon index",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
     },
     "keywords": [],
     "author": "",
@@ -17,6 +19,7 @@
         "stripe": "^8.117.0"
     },
     "devDependencies": {
+        "concurrently": "^5.3.0",
         "nodemon": "^2.0.6"
     }
 }
