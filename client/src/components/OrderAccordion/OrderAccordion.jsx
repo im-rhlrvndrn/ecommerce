@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { gsap, css } from 'gsap';
 import moment from 'moment';
 
 // SCSS
@@ -12,10 +13,28 @@ const Accordion = ({ order }) => {
     const [opacity, setOpacity] = useState('0');
 
     const contentRef = useRef(null);
+    const t1 = gsap.timeline({ paused: true, reversed: true });
+
+    useEffect(() => {
+        t1.to('.orderContainer', { duration: 0, css: { visibility: 'visible' } }).from(
+            '.orderItemsContainer__orderItem',
+            {
+                duration: 0.4,
+                stagger: 0.15,
+                opacity: 0,
+                y: '-10px',
+                ease: 'power3.InOut',
+            }
+        );
+
+        // active ? t1.play() : t1.reverse();
+        t1.play();
+    }, [active]);
+
+    useEffect(() => {}, []);
 
     const handleAccordionToggle = () => {
         setActive(!active);
-        setContentHeight(active ? '0px' : `${contentRef.current.scrollHeight + 32}px`);
         setRotate(active ? 'accordion__icon rotateBack' : 'accordion__icon rotate');
         setOpacity(active ? '0' : '1');
     };
@@ -39,28 +58,22 @@ const Accordion = ({ order }) => {
                 </div>
             </div>
             {/* The below div is the expandable box */}
-            <div
-                ref={contentRef}
-                style={{
-                    maxHeight: `${contentHeight}`,
-                    opacity: `${opacity}`,
-                    zIndex: active ? '1' : '-1',
-                }}
-                className='orderItemsContainer'
-            >
-                {order.data.cart?.map((item) => (
-                    <div className='orderItemsContainer__orderItem'>
-                        <img src={item.img} alt={item.title} />
-                        <p className='orderItemsContainer__orderItem__title'>{item.title}</p>
-                        <p className='orderItemsContainer__orderItem__price'>
-                            {new Intl.NumberFormat('en-IN', {
-                                style: 'currency',
-                                currency: 'INR',
-                            }).format(item?.price)}
-                        </p>
-                    </div>
-                ))}
-            </div>
+            {active && (
+                <div ref={contentRef} className='orderItemsContainer'>
+                    {order.data.cart?.map((item) => (
+                        <div className='orderItemsContainer__orderItem'>
+                            <img src={item.img} alt={item.title} />
+                            <p className='orderItemsContainer__orderItem__title'>{item.title}</p>
+                            <p className='orderItemsContainer__orderItem__price'>
+                                {new Intl.NumberFormat('en-IN', {
+                                    style: 'currency',
+                                    currency: 'INR',
+                                }).format(item?.price)}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

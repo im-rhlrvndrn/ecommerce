@@ -1,6 +1,11 @@
 @import '../../mixins.scss';
 
 .home {
+    padding-bottom: 6rem;
+    @include sm-tablet {
+        padding-bottom: 0rem;
+    }
+
     &__container {
         img {
             width: 100%;

@@ -7,6 +7,10 @@
     background-color: white;
     margin-bottom: 0.5rem;
     cursor: pointer;
+    height: auto;
+    visibility: hidden;
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    opacity: 1;
     z-index: 5;
     @include tablet {
         max-width: 70%;
@@ -56,6 +60,8 @@
     }
 
     .orderItemsContainer {
+        // display: none;
+        opacity: 1;
         transition: 0.4s cubic-bezier(0.57, 0.21, 0.69, 1.25);
 
         &__orderItem {

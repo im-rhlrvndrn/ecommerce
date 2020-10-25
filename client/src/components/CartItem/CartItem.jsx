@@ -6,6 +6,7 @@ import './CartItem.scss';
 
 const CartItem = ({ id, title, img, price, rating }) => {
     const [{ cart }, dispatch] = useDataLayerValue();
+
     const removeFromCart = () => {
         dispatch({
             type: 'REMOVE_FROM_CART',
